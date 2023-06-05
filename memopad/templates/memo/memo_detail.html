@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}メモ一覧{% endblock %}
+{% block h1 %}メモ一覧{% endblock %}
+
+{% block content %}
+    <p>タイトル：{{ object.title }}</p>
+    <p>テキスト：{{ object.text }}</p>
+    <li style="list-style: none; padding-left: 0;">
+        {% for tags in object.tags.all %}
+            {{ tags.tag_name }}
+        　<!-- 空白 --> 
+        {% endfor %}
+    </li>
+    <a href="{% url 'memo-list' %}">一覧へ</a>
+    <a href="{% url 'memo-update' object.pk %}">修正する</a>
+    <a href="{% url 'mamo-delete' object.pk %}">削除する</a>
+{% endblock %}

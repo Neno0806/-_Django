@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}新規メモ作成{% endblock %}
+{% block h1 %}新しくメモを作る{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <!-- Title: <input type="text" name="title">
+        <p>＊作成するメモのタイトルを入力してください</p>
+
+        Text: <input style="width: 20%; height: 20px;" type="text" name="text">
+        <p>＊作成するメモのテキストを入力してください</p> -->
+       
+        Tags: <input type="text" name="tags">
+        <p>＊各タグの先頭に半角#をつけ、複数タグの場合は全角スペースで区切ってください</p>
+
+        <input type="submit" value="作成する">
+    </form>
+{% endblock %}
